@@ -1,0 +1,29 @@
+BFS template:
+int BFS(Node start, Node target) {
+    Queue<Node> q;
+    Set<Node> visited;
+
+    q.offer(start);
+    visited.add(start);
+
+    int step = 0;
+
+    while(!q.isEmpty()) {
+        int size = q.size();
+
+        for (int i = 0; i < size; i++) {
+            Node cur = q.poll();
+            if (cur == target) return step;
+            for (Node x: cur.next()) {
+                if (x not in visited) {
+                    q.offer(x);
+                    visited.add(x);
+                }
+            }
+        }
+        step++;
+    }
+}
+
+Backtracking is a more general purpose algorithm.
+Depth-First search (DFS) is a specific form of backtracking related to searching graph, tree structure.
